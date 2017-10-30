@@ -59,8 +59,10 @@ void loop(){   // Here's where the rubber meets the road
   lsensorState = digitalRead(leftSensor);   //read left sensora
   fsensorValue = analogRead(frontSensor);
   fsensorVoltage = fsensorValue*(5.0/1023.0);
+         
   Serial.print("Front: " + String(fsensorVoltage) + "  Left: " + String(rsensorState) + "  Right: ");
   Serial.println(lsensorState);
+         
   
   if(fsensorVoltage > 2.5){
     Serial.println("Front Sensor exceeding Threshold");
@@ -102,4 +104,9 @@ void loop(){   // Here's where the rubber meets the road
     servo_l.write(left_forward);    // Full Speed Ahead
     servo_r.write(right_forward);
   }
+}
+
+void count()
+{
+  delay (1000);
 }
